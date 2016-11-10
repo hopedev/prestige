@@ -1,0 +1,22 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "uikit": "^2.25.0",
+    "flexslider": "^2.6.3"
+  },
+  "overrides": {
+    "uikit": {
+      "main": [
+        "./js/uikit.js",
+        "./js/components/slideshow.js",
+        "./js/components/grid.js"
+      ]
+    }
+  }
+}

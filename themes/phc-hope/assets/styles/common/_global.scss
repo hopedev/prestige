@@ -1,0 +1,15 @@
+body { margin: 0 1em; }
+
+.container {
+	 @extend .uk-container;
+	 @extend .uk-container-center; 
+	
+}
+
+// hide text for image replacement
+.hide-text {
+         text-indent: 100%;
+         white-space: nowrap;
+         overflow: hidden;
+}
+
