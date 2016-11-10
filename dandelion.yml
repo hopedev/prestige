@@ -1,0 +1,40 @@
+adapter: sftp
+host: shell.gridhost.co.uk
+username: hopedeva
+password: sjw2fytdv9y8pxic
+path: //var/sites/h/hopedev.agency/subdomains/prestige/wp-content/
+
+exclude:
+    - .gitignore    
+    - index.php
+    - dandelion.yml
+    - dir/
+    - themes/prestige-hope/.bowerrc
+    - themes/prestige-hope/.editorconfig
+    - themes/prestige-hope/.github/
+    - themes/prestige-hope/.gitignore
+    - themes/prestige-hope/.jscsrc
+    - themes/prestige-hope/.jshintrc
+    - themes/prestige-hope/.travis.yml
+    - themes/prestige-hope/.editorconfig
+    - themes/prestige-hope/.github/
+    - themes/prestige-hope/.gitignore
+    - themes/prestige-hope/.jscsrc
+    - themes/prestige-hope/.jshintrc
+    - themes/prestige-hope/.travis.yml
+    - themes/prestige-hope/bower_components
+    - themes/prestige-hope/node_modules
+    - themes/prestige-hope/npm-debug.log
+    - themes/prestige-hope/vendor
+    - themes/twentysixteen/*
+    - themes/index.php
+    - themes/composer.phar
+    - themes/npm-debug.log
+    - plugins/*
+    - languages/*
+    - upgrade/*
+    - uploads/*
+
+
+additional:
+    - themes/prestige-hope/dist/
