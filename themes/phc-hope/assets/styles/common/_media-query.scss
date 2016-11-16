@@ -24,10 +24,15 @@
 		    float: right;
 		    //margin-left: ($line-height-computed / 2);
 		  }
-	 }
-
-	
- 	
+		  .page-content {
+		  	.featured-quote{
+			  	width: 80%;
+			  }
+			  .featured-image img{
+			     display: inline; 
+			 }
+		}
+ 	}
  	
 	/* large Devices, Desktops */
 	@media only screen and (min-width : 992px){ 

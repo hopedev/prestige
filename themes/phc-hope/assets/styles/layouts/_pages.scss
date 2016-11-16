@@ -15,10 +15,16 @@
 	border: 10px solid #fff;
 	@include box-shadow(10px, 10px, 50px, #444 ) ;
 	@include rotate(3deg);	
+	    margin: 1em auto;
+     display: block; 
 }
 .featured-quote{
 	margin-top: 4em;
 	padding-left: 1em;
 	border-left: 5px solid $brand-primary;
 	blockquote{margin-bottom: 0;}
+}
+
+.post-content p:first-of-type{
+	font-weight: 600;
 }
