@@ -1,38 +1,38 @@
-   <?php 
-   
+<div class="pagebanner ">
 
-   if (is_front_page() || is_page('the-team')){ ?>
+	<div class=" uk-container uk-container-center uk-text-center">
+		<div class="uk-grid uk-grid-width-medium-1-2">
+			<div class="pagebanner-text">Case study</div>
+			<div class="pagebanner-img">
 
-   <div class="hometopsection ">
-	   	<div class="uk-grid uk-grid-collapse uk-grid-width-1-1 uk-grid-width-medium-1-2">
-		   	<div class="leftslider">
-			   <?php // Left side slider, top on mob
-			   	$slideshow_name =  'main_slider_l';
-				include(locate_template('templates/partial-header-flexslider.php')); 
-			   ?> 
-		   </div>
-
-			<div  class="rightslider">
-			   <?php // Right side slider, bottom on mob
-			   	$slideshow_name =  'main_slider_r';
-				include(locate_template('templates/partial-header-flexslider.php')); 		   
-			   ?> 
-		   </div>		   	
-		</div> <!-- close grid -->
-
-		<div class="uk-nbfc uk-container-center slidetest uk-vertical-align-middle">
-			<div class="slideup uk-panel uk-panel-box  uk-container-center" style="z-index:100; min-height: 40px; width:100px;">Slide up</div>
-			<div class="slidedown uk-panel uk-panel-box  uk-container-center" style="z-index:100; min-height: 40px; width:100px;">Slide Down</div>
+			<?php 
+			$banner_ID = (int) get_post_meta( get_the_ID(), 'banner_image', true );
+			if( $banner_ID ) {
+			    // Thumbnail field returns image ID, so grab image. If none provided, use default image
+			    $banner_img =  wp_get_attachment_image( $banner_ID, 'full' ) ;
+			     echo $banner_img;
+			  }
+			
+			?>
+			</div>
 		</div>
+	</div>
+</div>
 
-   </div> <!-- end hometopsection -->
-	<?php } ?>
-
+ <div class="breadcrumbscontainer uk-container uk-container-center">
+      <?php
+      if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb('
+        <p class="breadcrumb">','</p>
+        ');
+      }
+      ?>
+      </div>
 
 
 <?php while (have_posts()) : the_post(); ?>
 
-	<div class=" uk-container uk-container-center uk-text-center">
+	<div class=" uk-container uk-container-center">
   
 	  <?php get_template_part('templates/page', 'header'); ?>
 
@@ -41,35 +41,3 @@
 	</div>
 
 <?php endwhile; ?>
-
-
-<?php if (is_front_page()){ ?>
-
-   <div class="">
-	   
-		   	<div >
-
-		   <?php // Left side slider, top on mob
-		   	$slideshow_name =  'comm_slider';
-			include(locate_template('templates/partial-slideshow.php')); 
-		   ?> 
-
-		   </div>
-
-			<div >
-		   <?php // Right side slider, bottom on mob
-		   	$slideshow_name =  'residential_projects_slider';
-			include(locate_template('templates/partial-slideshow.php')); 
-		   
-		   ?> 
-			
-		   </div>
-	
-
-   </div>
-	<?php 
-
-	}else if(is_page('the-team')) {
-					include(locate_template('templates/partial-team.php')); 
-	}
-

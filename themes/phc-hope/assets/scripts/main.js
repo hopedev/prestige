@@ -19,6 +19,10 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        $('#fullmenu').hover(
+         function(){ $('#fullmenustrip').removeClass('uk-hidden');},
+         function(){ $('#fullmenustrip').addClass('uk-hidden'); }
+        );
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -28,26 +32,6 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
-        // FlexSlider setup using custom selector
-        $(".leftslider .flexslider").flexslider({
-           animation: "slide" ,
-            direction: "vertical" ,
-           animationLoop: true,
-            smoothHeight: true,
-            slideshow: true,
-            controlNav: false,
-            directionNav: false
-        });
-        $(".rightslider .flexslider").flexslider({
-           animation: "slide", 
-           reverse: true ,
-            direction: "vertical" ,
-            animationLoop: true,
-            smoothHeight: true,
-           slideshow: true,
-            controlNav: false,
-            directionNav: false
-        });
 
       },
       finalize: function() {

@@ -3,7 +3,24 @@
 	@extend .uk-hidden-small;
 }
 
+#menu-top-nav a {
+    color: black;
+}
+
 #sidemenu .menu-main-navigation-container > .uk-nav{ // only main ul, not any submenu's
 	padding-top: 4em;
 	padding-left: 2em;	
+}
+
+#fullmenu .nav-primary {
+	ul{ 
+		width: 100%;
+		li:not(:first-child){flex:1;}
+	
+	}
+}
+
+.fullmenustrip {
+	height: 150px;
+	background: $brand-primary;
 }

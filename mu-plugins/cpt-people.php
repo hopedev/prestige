@@ -54,7 +54,7 @@ Class IWCpeople {
     } 
 }
 
-IWCpeople::init();
+//IWCpeople::init();
 
 
 Class IWCposition {
@@ -101,7 +101,7 @@ Class IWCposition {
 
 }
 
-IWCposition::init();
+// IWCposition::init();
 
 
 // Class IWCposition {
