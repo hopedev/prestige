@@ -17,6 +17,7 @@
 					echo $quote_author;  
 					echo '</div>';
 				}
+				echo  '</div>';
 				
 			}
 		?>
@@ -24,7 +25,7 @@
 			
 
 			
-		 </div>
+		
 
 
 	 </div>

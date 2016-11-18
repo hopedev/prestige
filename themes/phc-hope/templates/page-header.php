@@ -5,6 +5,6 @@ use Roots\Sage\Titles;
 ?>
 
 
-<div class="page-header uk-text-center">
+<div class="page-header">
   <h1><?= Titles\title(); ?></h1>
 </div>

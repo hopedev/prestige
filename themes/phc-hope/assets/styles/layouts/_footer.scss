@@ -1,8 +1,26 @@
 footer {
 		margin-top: 1em ;
 	    padding-top: 1em;
-	    background-color: $brand-grey;
-	    section h3{
-			@extend .screen-reader-text;
-		}
+	    //background-color: $brand-grey;
+	    .footerbar {
+	    	text-align: center;
+	    	border-bottom: 1px solid black;
+	    	 padding: 3em 0;	    	
+	    	.icon {font-size: 50px; color: $brand-primary;}
+	    	h2{color: $brand-pink;}
+
+	    }
+	    .footermenu { padding: 1em 0;}
+	    .logos { padding: 1em 0;}	
+	    .copyright    { padding: 1em 0;} 
+	    #menu-footer {
+	    	a{
+	    		color: #333;
+	    	}
+	    	a:hover{
+	    		color: #333;
+	    		background-color: none;
+	    	}
+	    }
+
 }

@@ -1,7 +1,59 @@
-// Grid settings
-// $enable-flex:           true;
-// $main-sm-columns:       12;
-// $sidebar-sm-columns:    4;
+/////////////
+// MIXINS //
+////////////
+
+// Background Gradient: Left to Right
+@mixin bg-gradient-l2r($start-colour, $end-colour) {
+    background-color: $start-colour;
+    background-image: -webkit-gradient(linear, left top, right top, from($start-colour), to($end-colour));
+    background-image: -webkit-linear-gradient(left, $start-colour, $end-colour);
+    background-image:    -moz-linear-gradient(left, $start-colour, $end-colour);
+    background-image:     -ms-linear-gradient(left, $start-colour, $end-colour);
+    background-image:      -o-linear-gradient(left, $start-colour, $end-colour);
+    background-image:         linear-gradient(to right, $start-colour, $end-colour);
+    filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
+}
+// Usage:
+// @include bg-gradient-l2r(start colour, end colour);
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+    // -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+    // filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+}
+@mixin box-shadow($top: 3px, $left: 3px, $blur: 4px, $colour: #444, $inset:"") {
+  -webkit-box-shadow: #{$inset} $top $left $blur $colour;
+  -moz-box-shadow:  #{$inset} $top $left $blur $colour;
+  box-shadow: #{$inset} $top $left $blur $colour;
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/////////////
+// MIXINS //
+////////////
+
+
+
 $spacer: 1rem; // setting a referenced bootstrap variable
 $icon-font-path:                                 "../fonts" !default;
 
@@ -10,12 +62,15 @@ $icon-font-path:                                 "../fonts" !default;
 $brand-primary:         rgb(123,9,89); // purple
 $brand-yellow: rgb(255,204,0); // Prestige Lemon R255 G204 B0
 $brand-orange: rgb(243,146,0); // Prestige Orange R243 G146 B0
+$brand-pink: rgb(231,29,115); // Prestige Candy Pink R231 G29 B115
 $brand-grey: #F3F3F3;
+
+$brand-tint: tint($brand-primary, 90%);
 
 // UIkit variables
 $navbar-background: $brand-primary;
 $navbar-nav-active-background: $brand-primary;
-$navbar-nav-hover-background: $brand-primary;
+$navbar-nav-hover-background: transparent;
 $navbar-nav-color: #fff;
 $navbar-nav-active-color: $brand-yellow ;
 $navbar-nav-hover-color: $brand-yellow ;
@@ -24,6 +79,9 @@ $navbar-link-color: #fff;
 $navbar-link-hover-color: $brand-yellow ;
 
 $panel-box-color: #000000;
+
+// $base-h2-font-size: 18px;
+// $base-h2-line-height: 24px;
 
 
 $base-blockquote-padding-left: 0;
@@ -57,34 +115,3 @@ blockquote p {
 
 //$panel-box-background: $brand-primary;
 
-/////////////
-// MIXINS //
-////////////
-
-// Background Gradient: Left to Right
-@mixin bg-gradient-l2r($start-colour, $end-colour) {
-    background-color: $start-colour;
-    background-image: -webkit-gradient(linear, left top, right top, from($start-colour), to($end-colour));
-    background-image: -webkit-linear-gradient(left, $start-colour, $end-colour);
-    background-image:    -moz-linear-gradient(left, $start-colour, $end-colour);
-    background-image:     -ms-linear-gradient(left, $start-colour, $end-colour);
-    background-image:      -o-linear-gradient(left, $start-colour, $end-colour);
-    background-image:         linear-gradient(to right, $start-colour, $end-colour);
-    filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
-}
-// Usage:
-// @include bg-gradient-l2r(start colour, end colour);
-@mixin rotate($degrees) {
-    -webkit-transform: rotate($degrees);
-    -moz-transform: rotate($degrees);
-    -ms-transform: rotate($degrees);
-    -o-transform: rotate($degrees);
-    transform: rotate($degrees);
-    // -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
-    // filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
-}
-@mixin box-shadow($top: 3px, $left: 3px, $blur: 4px, $colour: #444, $inset:"") {
-  -webkit-box-shadow: #{$inset} $top $left $blur $colour;
-  -moz-box-shadow:  #{$inset} $top $left $blur $colour;
-  box-shadow: #{$inset} $top $left $blur $colour;
-}

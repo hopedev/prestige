@@ -8,7 +8,6 @@
 			<?php 
 			$banner_ID = (int) get_post_meta( get_the_ID(), 'banner_image', true );
 			if( $banner_ID ) {
-			    // Thumbnail field returns image ID, so grab image. If none provided, use default image
 			    $banner_img =  wp_get_attachment_image( $banner_ID, 'full' ) ;
 			     echo $banner_img;
 			  }
@@ -38,6 +37,32 @@
 
 	  <?php get_template_part('templates/content', 'page'); ?>
 
+<!-- if footer pic & quote -->
+		<?php 
+			$footerpic_ID = (int) get_post_meta( get_the_ID(), 'footer_image', true );
+			if( $footerpic_ID ) {
+			    
+			    $footer_img =  wp_get_attachment_image( $banner_ID, 'full' ) ;
+
+			     echo '<div class="footerimage">' . $footer_img . '</div>';
+			  }
+			 
+			$quote =  get_post_meta( get_the_ID(), 'footer_quote', true );
+			if( $quote ) { 
+				echo '<div class="footer-quote"><blockquote>';
+				echo $quote;  
+				echo '</blockquote>';
+				$quote_author =  get_post_meta( get_the_ID(), 'footer_quote', true );
+				if( $quote_author ) { 
+					echo '<div class="footer-quote-author">';
+					echo $quote_author;  
+					echo '</div>';
+				}
+				
+			}
+		?>
+
 	</div>
 
 <?php endwhile; ?>
+
